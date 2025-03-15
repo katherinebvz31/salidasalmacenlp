@@ -1,5 +1,5 @@
 {
-  "name": "salidasalmacen",
+  "name": "salidas-almacen",
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
