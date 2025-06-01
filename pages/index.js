@@ -22,23 +22,27 @@ export default function Home() {
   return (
     <div style={{ padding: 20 }}>
       <h1>Registro de Salidas</h1>
+
       <input 
         placeholder="Código del producto"
         value={codigo}
         onChange={(e) => setCodigo(e.target.value)}
       />
+
       {mockData[codigo] && (
-        <div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
           <img src={mockData[codigo].image} alt={mockData[codigo].name} width={50} />
-          <p>{mockData[codigo].name} ({mockData[codigo].unit})</p>
+          <p>{mockData[codigo].name} - Unidad: {mockData[codigo].unit}</p>
         </div>
       )}
+
       <input 
         placeholder="Cantidad"
         type="number"
         value={cantidad}
         onChange={(e) => setCantidad(e.target.value)}
       />
+
       <button onClick={handleAgregar}>Agregar</button>
 
       <h2>Salidas Registradas</h2>
