@@ -12,12 +12,15 @@ export default function Home() {
   const [salidas, setSalidas] = useState([]);
 
   const handleAgregar = () => {
-    if (mockData[codigo] && cantidad) {
-      setSalidas([...salidas, { codigo, ...mockData[codigo], cantidad }]);
+    const codigoUpper = codigo.toUpperCase();
+    if (mockData[codigoUpper] && cantidad) {
+      setSalidas([...salidas, { codigo: codigoUpper, ...mockData[codigoUpper], cantidad }]);
       setCodigo('');
       setCantidad('');
     }
   };
+
+  const producto = mockData[codigo.toUpperCase()];
 
   return (
     <div style={{ padding: 20 }}>
@@ -29,10 +32,10 @@ export default function Home() {
         onChange={(e) => setCodigo(e.target.value)}
       />
 
-      {mockData[codigo] && (
+      {producto && (
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
-          <img src={mockData[codigo].image} alt={mockData[codigo].name} width={50} />
-          <p>{mockData[codigo].name} - Unidad: {mockData[codigo].unit}</p>
+          <img src={producto.image} alt={producto.name} width={50} />
+          <p>{producto.name} - Unidad: {producto.unit}</p>
         </div>
       )}
 
